@@ -11,7 +11,7 @@ import com.cardio_generator.generators.BloodSaturationDataGenerator;
 import com.cardio_generator.generators.BloodLevelsDataGenerator;
 import com.cardio_generator.generators.ECGDataGenerator;
 import com.cardio_generator.outputs.ConsoleOutputStrategy;
-import com.cardio_generator.outputs.fileOutputStrategy;
+import com.cardio_generator.outputs.FileOutputStrategy;
 import com.cardio_generator.outputs.OutputStrategy;
 import com.cardio_generator.outputs.TcpOutputStrategy;
 import com.cardio_generator.outputs.WebSocketOutputStrategy;
@@ -27,14 +27,29 @@ import java.util.ArrayList;
 
 public class HealthDataSimulator {
 
+    private static HealthDataSimulator INSTANCE;
     private static int patientCount = 50; // Default number of patients
     private static ScheduledExecutorService scheduler;
     private static OutputStrategy outputStrategy = new ConsoleOutputStrategy(); // Default output strategy
     private static final Random random = new Random();
 
-    public static void main(String[] args) throws IOException {
+    private HealthDataSimulator() {}
+
+
+    public static HealthDataSimulator getInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new HealthDataSimulator();
+        }
+
+        return INSTANCE;
+    }
+
+    public static void start(String[] args) throws IOException {
 
         parseArguments(args);
+
+        //my addition
+        ///outputStrategy = new FileOutputStrategy("./myoutput");
 
         scheduler = Executors.newScheduledThreadPool(patientCount * 4);
 
@@ -42,6 +57,18 @@ public class HealthDataSimulator {
         Collections.shuffle(patientIds); // Randomize the order of patient IDs
 
         scheduleTasksForPatients(patientIds);
+    }
+
+    public static void main(String[] args) {
+        // Get the singleton instance of HealthDataSimulator
+        HealthDataSimulator simulator = HealthDataSimulator.getInstance();
+
+        try {
+            // Start the simulation
+            simulator.start(args);
+        } catch (IOException e) {
+            System.err.println("Error starting HealthDataSimulator: " + e.getMessage());
+        }
     }
 
     private static void parseArguments(String[] args) throws IOException {
@@ -72,7 +99,7 @@ public class HealthDataSimulator {
                             if (!Files.exists(outputPath)) {
                                 Files.createDirectories(outputPath);
                             }
-                            outputStrategy = new fileOutputStrategy(baseDirectory);
+                            outputStrategy = new FileOutputStrategy(baseDirectory);
                         } else if (outputArg.startsWith("websocket:")) {
                             try {
                                 int port = Integer.parseInt(outputArg.substring(10));

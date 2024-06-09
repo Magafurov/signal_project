@@ -1,0 +1,12 @@
+Patient ID: 41, Timestamp: 1717930858039, Label: WhiteBloodCells, Data: 8.88966636779752
+Patient ID: 35, Timestamp: 1717930858039, Label: WhiteBloodCells, Data: 8.380292399582569
+Patient ID: 19, Timestamp: 1717930858039, Label: WhiteBloodCells, Data: 9.510231922776681
+Patient ID: 1, Timestamp: 1717930858039, Label: WhiteBloodCells, Data: 4.965308754639877
+Patient ID: 32, Timestamp: 1717930858039, Label: WhiteBloodCells, Data: 5.075771156870617
+Patient ID: 38, Timestamp: 1717930858039, Label: WhiteBloodCells, Data: 9.163248874013554
+Patient ID: 45, Timestamp: 1717930858039, Label: WhiteBloodCells, Data: 9.312999192804899
+Patient ID: 48, Timestamp: 1717930858047, Label: WhiteBloodCells, Data: 4.206152117188033
+Patient ID: 23, Timestamp: 1717930858047, Label: WhiteBloodCells, Data: 8.297925995370823
+Patient ID: 42, Timestamp: 1717930858048, Label: WhiteBloodCells, Data: 7.618052109105675
+Patient ID: 3, Timestamp: 1717930858049, Label: WhiteBloodCells, Data: 4.575542928044565
+Patient ID: 25, Timestamp: 1717930858049, Label: WhiteBloodCells, Data: 4.9535218419195886

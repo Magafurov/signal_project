@@ -12,15 +12,24 @@ import com.alerts.AlertGenerator;
  * This class serves as a repository for all patient records, organized by
  * patient IDs.
  */
-public class DataStorage {
-    private Map<Integer, Patient> patientMap; // Stores patient objects indexed by their unique patient ID.
+public final class DataStorage {
+    // Stores patient objects indexed by their unique patient ID.
+    private final Map<Integer, Patient> patientMap = new HashMap<>();
+
+    private static DataStorage INSTANCE;
+
+    private DataStorage() {}
 
     /**
      * Constructs a new instance of DataStorage, initializing the underlying storage
      * structure.
      */
-    public DataStorage() {
-        this.patientMap = new HashMap<>();
+    public static DataStorage getInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new DataStorage();
+        }
+
+        return INSTANCE;
     }
 
     /**

@@ -1,0 +1,12 @@
+Patient ID: 19, Timestamp: 1717930858008, Label: Cholesterol, Data: 170.18294064222678
+Patient ID: 38, Timestamp: 1717930858033, Label: Cholesterol, Data: 164.59621428500705
+Patient ID: 1, Timestamp: 1717930857993, Label: Cholesterol, Data: 203.31133459248514
+Patient ID: 41, Timestamp: 1717930857992, Label: Cholesterol, Data: 173.15190773122896
+Patient ID: 35, Timestamp: 1717930857995, Label: Cholesterol, Data: 152.61354605615924
+Patient ID: 32, Timestamp: 1717930858008, Label: Cholesterol, Data: 148.2235922529579
+Patient ID: 45, Timestamp: 1717930858004, Label: Cholesterol, Data: 196.2077650906577
+Patient ID: 48, Timestamp: 1717930858045, Label: Cholesterol, Data: 162.45525182924646
+Patient ID: 23, Timestamp: 1717930858046, Label: Cholesterol, Data: 196.66256438947568
+Patient ID: 42, Timestamp: 1717930858047, Label: Cholesterol, Data: 189.3335173524398
+Patient ID: 3, Timestamp: 1717930858047, Label: Cholesterol, Data: 187.0887320783144
+Patient ID: 25, Timestamp: 1717930858048, Label: Cholesterol, Data: 191.84802280968003

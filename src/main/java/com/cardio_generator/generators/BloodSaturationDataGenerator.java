@@ -26,6 +26,7 @@ public class BloodSaturationDataGenerator implements PatientDataGenerator {
 
             // Ensure the saturation stays within a realistic and healthy range
             newSaturationValue = Math.min(Math.max(newSaturationValue, 90), 100);
+
             lastSaturationValues[patientId] = newSaturationValue;
             outputStrategy.output(patientId, System.currentTimeMillis(), "Saturation",
                     Double.toString(newSaturationValue) + "%");

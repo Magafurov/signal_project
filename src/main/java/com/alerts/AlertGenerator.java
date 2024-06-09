@@ -1,7 +1,12 @@
 package com.alerts;
 
+import com.alerts.alert_strategies.AlertStrategy;
+import com.alerts.alert_types.Alert;
 import com.data_management.DataStorage;
 import com.data_management.Patient;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The {@code AlertGenerator} class is responsible for monitoring patient data
@@ -11,6 +16,10 @@ import com.data_management.Patient;
  */
 public class AlertGenerator {
     private DataStorage dataStorage;
+
+
+
+
 
     /**
      * Constructs an {@code AlertGenerator} with a specified {@code DataStorage}.
@@ -35,7 +44,30 @@ public class AlertGenerator {
      * @param patient the patient data to evaluate for alert conditions
      */
     public void evaluateData(Patient patient) {
-        // Implementation goes here
+
+//        List<Alert> alerts = new ArrayList<>();
+//
+//        for (AlertStrategy alertStart : alertStartList) {
+//            alertStart.checkAlert(patient, alerts);
+//        }
+////
+//
+//        for (Alert alert : alerts) {
+//            triggerAlert(alert);
+//        }
+
+//        //alert definitions
+//        //blood pressure data alerts
+//        //make assumtion all 3 reading must be in past hour
+//        patient.getRecords()
+//
+//
+//        //we have to create alert
+//        Alert alert = new Alert(patient.getId(), condition, timestamp);
+//
+//        //pass it to triggerAlert
+//        triggerAlert(alert);
+
     }
 
     /**
