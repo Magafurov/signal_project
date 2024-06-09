@@ -3,6 +3,7 @@ package data_management;
 import static org.junit.jupiter.api.Assertions.*;
 
 import com.data_management.FileDataReader;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.data_management.DataStorage;
@@ -13,7 +14,12 @@ import java.util.List;
 
 class DataStorageTest {
 
-    //basic test of DataStorage funcitonality
+    @BeforeEach
+    void resetStorage() {
+        DataStorage.resetDataStorage();
+    }
+
+    //basic test of DataStorage functionality
     @Test
     void testAddAndGetRecords() {
 
@@ -47,18 +53,16 @@ class DataStorageTest {
     @Test
     void testFileDataReader() {
 
-//        FileDataReader f = new FileDataReader("myoutput/Saturation.txt");
-//
-//        DataStorage d = new DataStorage();
-//
-//        try {
-//            f.readData(d);
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//
-//        assert
-//
-            System.out.println("test");
+        FileDataReader f = new FileDataReader("test_output/Saturation.txt");
+
+        DataStorage d = DataStorage.getInstance();
+
+        try {
+            f.readData(d);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        assertTrue(d.getAllPatients().size() == 50);
     }
 }
