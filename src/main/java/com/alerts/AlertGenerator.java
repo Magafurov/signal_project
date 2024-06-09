@@ -17,6 +17,7 @@ import java.util.List;
 public class AlertGenerator {
     private DataStorage dataStorage;
 
+    public List<AlertStrategy> alertStrategies = new ArrayList<>();
 
 
 
@@ -34,6 +35,15 @@ public class AlertGenerator {
     }
 
     /**
+     * Sets the strategies (alert conditions) for the generator
+     *
+     * @param alertStrategies a list of strategies
+     */
+    public void setStrategies(List<AlertStrategy> alertStrategies) {
+        this.alertStrategies = alertStrategies;
+    }
+
+    /**
      * Evaluates the specified patient's data to determine if any alert conditions
      * are met. If a condition is met, an alert is triggered via the
      * {@link #triggerAlert}
@@ -45,28 +55,18 @@ public class AlertGenerator {
      */
     public void evaluateData(Patient patient) {
 
-//        List<Alert> alerts = new ArrayList<>();
-//
-//        for (AlertStrategy alertStart : alertStartList) {
-//            alertStart.checkAlert(patient, alerts);
-//        }
-////
-//
-//        for (Alert alert : alerts) {
-//            triggerAlert(alert);
-//        }
+        List<Alert> alerts = new ArrayList<>();
 
-//        //alert definitions
-//        //blood pressure data alerts
-//        //make assumtion all 3 reading must be in past hour
-//        patient.getRecords()
-//
-//
-//        //we have to create alert
-//        Alert alert = new Alert(patient.getId(), condition, timestamp);
-//
-//        //pass it to triggerAlert
-//        triggerAlert(alert);
+        //check if alert appropriate for each strategy
+        for (AlertStrategy alertStart : alertStrategies) {
+            alertStart.checkAlert(patient, alerts);
+        }
+
+        //trigger alerts one by one
+        for (Alert alert : alerts) {
+            triggerAlert(alert);
+        }
+
 
     }
 
