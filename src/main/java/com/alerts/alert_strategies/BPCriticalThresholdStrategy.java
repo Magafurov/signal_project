@@ -30,15 +30,14 @@ public class BPCriticalThresholdStrategy implements AlertStrategy {
                 .collect(Collectors.toList());
 
         if (bpSysRecords.size() < 1) {
-            return alertList; // do nothing because not enough data
+            //do nothing
+        } else {
+            latestIndex = bpSysRecords.size() - 1;
+
+            if (bpSysRecords.get(latestIndex).getMeasurementValue() > 180 || bpSysRecords.get(latestIndex).getMeasurementValue() < 90) {
+                alertList.add(bloodPressureAlertFactory.createAlert(patient.getId(), "BP critical threshold", bpSysRecords.get(latestIndex).getTimestamp()));
+            }
         }
-
-        latestIndex = bpSysRecords.size() -1;
-
-        if (bpSysRecords.get(latestIndex).getMeasurementValue() > 180 || bpSysRecords.get(latestIndex).getMeasurementValue() < 90) {
-            alertList.add(bloodPressureAlertFactory.createAlert(patient.getId(), "BP critical threshold", bpSysRecords.get(latestIndex).getTimestamp()));
-        }
-
 
 
         //filter for bp values

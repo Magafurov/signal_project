@@ -14,7 +14,7 @@ import com.alerts.AlertGenerator;
  */
 public final class DataStorage {
     // Stores patient objects indexed by their unique patient ID.
-    private final Map<Integer, Patient> patientMap = new HashMap<>();
+    private static Map<Integer, Patient> patientMap = new HashMap<>();
 
     private static DataStorage INSTANCE;
 
@@ -30,6 +30,10 @@ public final class DataStorage {
         }
 
         return INSTANCE;
+    }
+
+    public static void resetDataStorage(){
+        patientMap = new HashMap<>();
     }
 
     /**
